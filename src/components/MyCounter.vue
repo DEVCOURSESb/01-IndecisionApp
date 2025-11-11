@@ -1,31 +1,15 @@
 <template>
   <h1>Counter: {{ counter }}</h1>
-  <h1>Counter elevado computado: {{ counterElevatedComputed }}</h1>
+  <h1>Counter elevado computado: {{ squareCounter }}</h1>
 
   <!-- cuando se accede a valores desde el html vue extrae directamente el value -->
-  <button @click="counter++">+</button>
-  <button @click="counter--">-</button>
+  <button @click="incrementCounter">+</button>
+  <button @click="decrementCounter">-</button>
 </template>
 
 <!-- aplicando el setup directamente desde el script -->
 <script lang="ts" setup>
-interface Props {
-  counterInit: number;
-}
+import { useCounter } from '@/composableFunctions/useCounter';
 
-//  const props = defineProps({  counterInit: { type: Number, required: true }  }); con js
-const props = defineProps<Props>(); // aprovechando ts
-
-import { computed, ref } from 'vue';
-
-const counter = ref<number>(props.counterInit);
-const counterElevatedComputed = computed(() => counter.value * counter.value);
+const { counter, squareCounter, incrementCounter, decrementCounter } = useCounter(1);
 </script>
-
-<!-- con style solo. se aplican los estilos a todo el dom. -->
-<!-- con scoped aplica los estilos a solo este SFC SINGLE FILE COMPONENT y agrega un data-v para manejar un correcto scoped -->
-<style scoped>
-h1 {
-  text-shadow: 1px 1px red;
-}
-</style>

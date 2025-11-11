@@ -1,4 +1,5 @@
-import { computed, defineComponent, ref } from 'vue';
+import { useCounter } from '@/composableFunctions/useCounter';
+import { defineComponent, } from 'vue';
 
 export default defineComponent({
   props: {
@@ -6,12 +7,15 @@ export default defineComponent({
   },
 
   setup(props) {
-    const counter = ref<number>(props.counterInit);
-    const counterElevatedComputed = computed(() => counter.value * counter.value);
+    const { counter, squareCounter, incrementCounter, decrementCounter } = useCounter(
+      props.counterInit,
+    );
 
     return {
       counter,
-      counterElevatedComputed,
+      squareCounter,
+      incrementCounter,
+      decrementCounter,
     };
   },
 });

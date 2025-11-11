@@ -1,10 +1,10 @@
 <template>
   <h1>Counter: {{ counter }}</h1>
-  <h1>Counter elevado computado: {{ counterElevatedComputed }}</h1>
+  <h1>Counter elevado computado: {{ squareCounter }}</h1>
 
   <!-- cuando se accede a valores desde el html vue extrae directamente el value -->
-  <button @click="counter++">+</button>
-  <button @click="counter--">-</button>
+  <button @click="incrementCounter">+</button>
+  <button @click="decrementCounter">-</button>
 </template>
 
 <!-- se importa directamente desde el script -->
