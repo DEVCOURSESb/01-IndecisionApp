@@ -2,7 +2,7 @@
   <h1>Mi primera app</h1>
   <hr />
   <!-- y se renderiza el componente -->
-  <MyCounter />
+  <MyCounter :counter-init="3" />
 </template>
 
 <script setup lang="ts">

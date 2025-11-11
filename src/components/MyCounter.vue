@@ -9,9 +9,16 @@
 
 <!-- aplicando el setup directamente desde el script -->
 <script lang="ts" setup>
+interface Props {
+  counterInit: number;
+}
+
+//  const props = defineProps({  counterInit: { type: Number, required: true }  }); con js
+const props = defineProps<Props>(); // aprovechando ts
+
 import { computed, ref } from 'vue';
 
-const counter = ref<number>(10);
+const counter = ref<number>(props.counterInit);
 const counterElevatedComputed = computed(() => counter.value * counter.value);
 </script>
 
