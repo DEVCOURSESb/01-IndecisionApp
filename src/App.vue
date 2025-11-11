@@ -1,13 +1,18 @@
 <template>
-  <h1>Hola mundo!!, soy {{ name }}</h1>
-  <h1>Hola mundo!!, soy {{ name }}</h1>
-  <h1>Hola mundo!!, soy {{ name }}</h1>
-  <h1>Hola mundo!!, soy {{ name }}</h1>
+  <h1>Counter: {{ counter }}</h1>
+  <h1>Counter elevado computado: {{ counterElevatedComputed }}</h1>
+
+  <!-- cuando se accede a valores desde el html vue extrae directamente el value -->
+  <button @click="counter++">+</button>
+  <button @click="counter--">-</button>
 </template>
 
 <!-- aplicando el setup directamente desde el script -->
 <script lang="ts" setup>
-const name: string = 'Beto';
+import { computed, ref } from 'vue';
+
+const counter = ref<number>(10);
+const counterElevatedComputed = computed(() => counter.value * counter.value);
 </script>
 
 <!-- con style solo. se aplican los estilos a todo el dom. -->
