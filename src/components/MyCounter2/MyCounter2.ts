@@ -1,5 +1,5 @@
 import { useCounter } from '@/composableFunctions/useCounter';
-import { defineComponent, } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
