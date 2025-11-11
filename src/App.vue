@@ -1,7 +1,7 @@
 <template>
-  <h1>Mi primera app</h1>
-  <hr />
+  <IndesitionView />
 </template>
 
 <script setup lang="ts">
+import IndesitionView from './views/IndesitionView.vue';
 </script>
