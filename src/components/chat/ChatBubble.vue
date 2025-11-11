@@ -19,12 +19,12 @@
 
 <!-- script setup -->
 <script lang="ts" setup>
-interface Props {
-  message: string;
+interface ChatMessage {
   itsMine: boolean;
+  message: string;
   image?: string;
 }
 
 /* definicion de props */
-defineProps<Props>();
+defineProps<ChatMessage>();
 </script>
