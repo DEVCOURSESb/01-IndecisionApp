@@ -4,7 +4,7 @@
       {{ message }}
     </div>
   </div>
-  <div v-else="itsMine" class="flex">
+  <div v-else class="flex">
     <div class="bg-gray-300 text-black p-2 rounded-lg max-w-xs">
       <span class="capitalize">{{ message }}</span>
       <img

@@ -4,6 +4,8 @@
       type="text"
       placeholder="Type your message..."
       class="flex-1 border rounded-full px-4 py-2 focus:outline-none"
+      v-model="message"
+      @keydown.enter="sendMessage"
     />
     <button
       class="bg-blue-500 text-white rounded-full p-2 ml-2 hover:bg-blue-600 focus:outline-none"
@@ -31,3 +33,25 @@
     </button>
   </div>
 </template>
+<script lang="ts" setup>
+import { ref } from 'vue';
+
+// declarando la emision de un evento hacia el padre, para eso sirve defineEmits
+// como estamos usando ts se puede agregar la prop generica en <> y no dentro de ({  })
+const emits = defineEmits<{
+  // onSendMessage es el evento, dicho evento emitirá el mensaje de tipo string
+  onSendMessage: [message: string];
+}>();
+
+// var reactiva del nuevo mensaje, se enlaza con v-model
+const message = ref('');
+
+const sendMessage = () => {
+  if (message.value && message.value.length > 1) {
+    // usando emits que contiene la declaracion de fncs.
+    // se accede a la funcion, como segundo param se pasa el valor de retorno en este caso
+    emits('onSendMessage', message.value);
+    message.value = '';
+  }
+};
+</script>

@@ -1,9 +1,10 @@
 <template>
   <div class="flex-1 overflow-y-auto p-4">
-    <div v-for="message in messages" class="flex flex-col gap-2">
+    <div v-for="message in messages" :key="message.id" class="flex flex-col">
       <!-- forma larga -->
-      <!-- <ChatBubble :key="message.id" :id="message.id" :its-mmessage.ine="itsMine" :message="message.message" :image="message.image" /> -->
-      <ChatBubble :key="message.id" v-bind="message" />
+      <!-- <ChatBubble :id="message.id" :its-mmessage.ine="itsMine" :message="message.message" :image="message.image" /> -->
+       <!-- forma corta, se pasa como esparcido el message -->
+      <ChatBubble v-bind="message" />
     </div>
   </div>
 </template>
