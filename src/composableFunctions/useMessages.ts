@@ -7,11 +7,7 @@ export const useMessages = () => {
     return new Date().getTime();
   };
 
-  const messages = ref<ChatMessage[]>([
-    { id: createUUID(), itsMine: true, message: 'Hola' },
-    { id: createUUID(), itsMine: true, message: 'Hola x2' },
-    { id: createUUID(), itsMine: false, message: 'Hola respuesta', image: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png', },
-  ]);
+  const messages = ref<ChatMessage[]>([]);
 
   const getHerResponse = async () => {
     const response = await fetch("https://yesno.wtf/api");
